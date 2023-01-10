@@ -17,6 +17,8 @@ namespace OpenAI.Net.Models.OperationResult
         public HttpStatusCode StatusCode { get; set; }
 
         public static implicit operator HttpOperationResult<T>(T? result) => new HttpOperationResult<T>(result,HttpStatusCode.OK);
+#pragma warning disable CS8603 // Possible null reference return.
         public static implicit operator T(HttpOperationResult<T> result) => result.Result;
+#pragma warning restore CS8603 // Possible null reference return.
     }
 }

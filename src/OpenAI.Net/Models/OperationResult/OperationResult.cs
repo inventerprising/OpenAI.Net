@@ -20,6 +20,8 @@ namespace OpenAI.Net.Models.OperationResult
         public bool IsSuccess => Exception == null;
 
         public static implicit operator OperationResult<T>(T? result) => new OperationResult<T>(result);
+#pragma warning disable CS8603 // Possible null reference return.
         public static implicit operator T(OperationResult<T> result) => result.Result;
+#pragma warning restore CS8603 // Possible null reference return.
     }
 }

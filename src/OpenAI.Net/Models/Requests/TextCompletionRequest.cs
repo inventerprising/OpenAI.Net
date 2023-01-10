@@ -114,6 +114,12 @@ namespace OpenAI.Net.Models.Requests
         /// Use carefully and ensure that you have reasonable settings for max_tokens and stop. <br/>
         /// <see href="https://beta.openai.com/docs/api-reference/completions/create#completions/create-best_of" />
         /// </summary>
+        
+        
+        [JsonPropertyName("presence_penalty")]
+        public double PresencePenalty { get; set; } = 0;
+
+
         [JsonPropertyName("best_of")]
         public int? BestOf { get; set; }
 

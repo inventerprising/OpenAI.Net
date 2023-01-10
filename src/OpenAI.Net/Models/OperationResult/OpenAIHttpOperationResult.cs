@@ -26,6 +26,8 @@ namespace OpenAI.Net.Models.OperationResult
         public ErrorResponse? ErrorResponse { get; internal set; }
 
         public static implicit operator OpenAIHttpOperationResult<T,TError>(T? result) => new OpenAIHttpOperationResult<T, TError>(result, HttpStatusCode.OK);
+#pragma warning disable CS8603 // Possible null reference return.
         public static implicit operator T(OpenAIHttpOperationResult<T, TError> result) => result.Result;
+#pragma warning restore CS8603 // Possible null reference return.
     }
 }
